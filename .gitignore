@@ -1,0 +1,8 @@
+# virtual env
+e/
+
+# python
+*.pyc
+
+# node
+node_modules
