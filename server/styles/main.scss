@@ -1,3 +1,6 @@
+// IMPORTS
+@import "wikipedia.css";
+
 // COLORS
 
 $blue: #5489fa;
@@ -6,21 +9,24 @@ $blue-light: #a6c6ff;
 $green: #2fe203;
 $green-light: #99ff7d;
 
-
 // GENERIC
 
 // PARTS
 #app {
+  .col-sm-2, .col-sm-3 {
+    font-size: 0.8em;
+  }
 
   .col-md-2, .col-md-3 {
     margin: 0;
     padding: 0;
     border-right: 1px solid #cecece;
     height: 100%;
+    overflow: hidden;
 
     h2 {
       font-weight: normal;
-      font-size: 12px;      
+      font-size: 12px;
     }
   }
 
@@ -39,4 +45,23 @@ $green-light: #99ff7d;
     background: $green;
     color: $green-light;
   }
+}
+
+
+#pages {
+  .list {
+    height: 100%;
+    overflow: scroll;
+  }
+
+  .page {
+    padding: 5px;
+    font-size: 1.2em;
+    border-bottom: 1px solid #cecece;
+  }
+}
+
+#page {
+  height: 100%;
+  overflow: scroll;
 }

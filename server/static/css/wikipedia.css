@@ -1,0 +1,10 @@
+.wikipedia {
+  overflow: scroll;
+  font-family: "Libre Baskerville", serif; }
+  .wikipedia .thumb.tright {
+    float: right;
+    margin-left: 3px; }
+  .wikipedia p {
+    font-size: 1.2em;
+    line-height: 1.7em;
+    margin-bottom: 1em; }
