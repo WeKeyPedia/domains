@@ -9,7 +9,8 @@ define modules, (Backbone, _)->
   <div class="page"><%= title %></div>
   """
 
-  PagesList = Backbone.View.extend
+  class PagesList extends Backbone.View
+
     initialize: ()->
 
       # remove the header height to make header + list = 100%

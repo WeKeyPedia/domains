@@ -4,7 +4,8 @@ modules = [
 ]
 
 define modules, (Backbone, vl)->
-  Pages = Backbone.Collection.extend
+  class Pages extends Backbone.Collection
+
     retrieve: ()->
       $.get "/api/domain/geometry/list", (data)=>
         p = ({ "title": p } for p in data["pages"])

@@ -1,11 +1,19 @@
-var modules;
+var modules,
+  extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+  hasProp = {}.hasOwnProperty;
 
 modules = ["backbone", "./view.list"];
 
 define(modules, function(Backbone, vl) {
   var Pages, pages, pages_list;
-  Pages = Backbone.Collection.extend({
-    retrieve: function() {
+  Pages = (function(superClass) {
+    extend(Pages, superClass);
+
+    function Pages() {
+      return Pages.__super__.constructor.apply(this, arguments);
+    }
+
+    Pages.prototype.retrieve = function() {
       return $.get("/api/domain/geometry/list", (function(_this) {
         return function(data) {
           var p;
@@ -25,8 +33,11 @@ define(modules, function(Backbone, vl) {
           return _this.trigger("add:list");
         };
       })(this));
-    }
-  });
+    };
+
+    return Pages;
+
+  })(Backbone.Collection);
   pages = new Pages();
   pages_list = new vl({
     el: "#pages .list",

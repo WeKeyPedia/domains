@@ -1,4 +1,6 @@
-var modules, template;
+var modules, template,
+  extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+  hasProp = {}.hasOwnProperty;
 
 modules = ["backbone", "underscore"];
 
@@ -6,13 +8,23 @@ template = "<div class=\"wikipedia page-view\">\n\n<h2><a href=\"http://en.wikip
 
 define(modules, function(Backbone, _) {
   var PageFull;
-  PageFull = Backbone.View.extend({
-    initialize: function() {
-      return this.listenTo(this.model, "change", this.render);
-    },
-    render: function() {
-      return this.$el.html(_.template(template)(this.model.attributes));
+  PageFull = (function(superClass) {
+    extend(PageFull, superClass);
+
+    function PageFull() {
+      return PageFull.__super__.constructor.apply(this, arguments);
     }
-  });
+
+    PageFull.prototype.initialize = function() {
+      return this.listenTo(this.model, "change", this.render);
+    };
+
+    PageFull.prototype.render = function() {
+      return this.$el.html(_.template(template)(this.model.attributes));
+    };
+
+    return PageFull;
+
+  })(Backbone.View);
   return PageFull;
 });

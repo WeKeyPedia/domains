@@ -5,8 +5,7 @@ modules = [
 ]
 
 define modules, (Backbone, pages, page)->
-  App = Backbone.Router.extend
-
+  class App extends Backbone.Router
     routes:
       "": "default"
       ":domain/:lang/:page_title": "to_page"

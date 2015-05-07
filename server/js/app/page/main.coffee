@@ -4,7 +4,7 @@ modules = [
 ]
 
 define modules, (Backbone, v)->
-  Page = Backbone.Model.extend
+  class Page extends Backbone.Model
 
     defaults:
       title: null

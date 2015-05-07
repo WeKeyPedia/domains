@@ -16,7 +16,7 @@ template = """
 """
 
 define modules, (Backbone, _)->
-  PageFull = Backbone.View.extend
+  class PageFull extends Backbone.View
 
     initialize: ()->
       @listenTo(@model, "change", @render)
