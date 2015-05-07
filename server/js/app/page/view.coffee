@@ -6,7 +6,7 @@ modules = [
 template = """
 <div class="wikipedia page-view">
 
-<h2><%= title %></h2>
+<h2><a href="http://en.wikipedia.org/wiki/<%= title %>"><%= title %></a></h2>
 
 <div class="content">
   <%= content %>
@@ -22,8 +22,8 @@ define modules, (Backbone, _)->
       @listenTo(@model, "change", @render)
 
     render: ()->
-      content = @model.get("content")
-      # console.log content
       @$el.html _.template(template)(@model.attributes)
+
+      # @$el.find('*[style]').removeAttr('style')
 
   return PageFull

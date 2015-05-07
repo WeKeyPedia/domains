@@ -1,10 +1,21 @@
 .wikipedia {
   overflow: scroll;
   font-family: "Libre Baskerville", serif; }
-  .wikipedia .thumb.tright {
-    float: right;
-    margin-left: 3px; }
   .wikipedia p {
     font-size: 1.2em;
     line-height: 1.7em;
     margin-bottom: 1em; }
+  .wikipedia .vertical-navbox th {
+    text-align: center; }
+  .wikipedia .vertical-navbox ul {
+    list-style-type: none; }
+    .wikipedia .vertical-navbox ul li {
+      display: inline; }
+  .wikipedia .ambox {
+    font-family: "Helvetica", "Helvetica Neue", arial, sans-serif;
+    font-size: 1em; }
+    .wikipedia .ambox .mbox-image {
+      padding: 5px; }
+  .wikipedia .thumb.tright {
+    float: right;
+    margin-left: 3px; }

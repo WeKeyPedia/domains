@@ -1,18 +1,43 @@
 $serif: "Libre Baskerville", serif;
-
+$sans-serif: "Helvetica", "Helvetica Neue", arial, sans-serif;
 .wikipedia {
   overflow: scroll;
 
   font-family: $serif;
-
-  .thumb.tright {
-    float: right;
-    margin-left: 3px;
-  }
 
   p {
     font-size: 1.2em;
     line-height: 1.7em;
     margin-bottom: 1em;
   }
+
+  .vertical-navbox {
+
+    th {
+      text-align: center;  
+    }
+
+    ul {
+      list-style-type: none;
+
+      li {
+        display: inline;
+      }
+    }
+  }
+
+  .ambox {
+    font-family: $sans-serif;
+    font-size: 1em;
+
+    .mbox-image {
+      padding: 5px;
+    }
+  }
+
+  .thumb.tright {
+    float: right;
+    margin-left: 3px;
+  }
+
 }
