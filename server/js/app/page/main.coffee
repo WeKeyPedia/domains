@@ -9,16 +9,18 @@ define modules, (Backbone, v)->
     defaults:
       title: null
       content: null
+      domain: []
+
+    initialize: ()->
+      page_view = new v
+        el: "#page"
+        model: this
+
+      @on "change:domain", ()->
+        page_view.update()
 
     load_content: (title)->
       $.get "/api/page/en/#{title}", (page)=>
          @set(page)
 
-  page = new Page()
-
-  # loading view
-  page_view = new v
-    el: "#page"
-    model: page
-
-  return page
+  return Page

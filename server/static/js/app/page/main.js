@@ -5,7 +5,7 @@ var modules,
 modules = ["backbone", "./view"];
 
 define(modules, function(Backbone, v) {
-  var Page, page, page_view;
+  var Page;
   Page = (function(superClass) {
     extend(Page, superClass);
 
@@ -15,7 +15,19 @@ define(modules, function(Backbone, v) {
 
     Page.prototype.defaults = {
       title: null,
-      content: null
+      content: null,
+      domain: []
+    };
+
+    Page.prototype.initialize = function() {
+      var page_view;
+      page_view = new v({
+        el: "#page",
+        model: this
+      });
+      return this.on("change:domain", function() {
+        return page_view.update();
+      });
     };
 
     Page.prototype.load_content = function(title) {
@@ -29,10 +41,5 @@ define(modules, function(Backbone, v) {
     return Page;
 
   })(Backbone.Model);
-  page = new Page();
-  page_view = new v({
-    el: "#page",
-    model: page
-  });
-  return page;
+  return Page;
 });

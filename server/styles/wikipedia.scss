@@ -13,18 +13,47 @@ $sans-serif: "Helvetica", "Helvetica Neue", arial, sans-serif;
     margin: 45px 0;
   }
 
-  p {
+  p, li {
     color: $grey-dark;
     font-size: 1.2em;
     line-height: 1.7em;
     margin-bottom: 1em;
   }
 
+  li {
+    margin-bottom: 0em;
+
+    li { font-size: 1em; }
+  }
 
   a {
     color: black;
     @include border();
+
+    &.link-domain-in {
+      @include border(4px, $grey-light, $grey);
+    }
+
+    &.link-difficulty {
+
+      &-easy{
+        @include border(4px, $green-light, $green);
+      }
+
+      &-normal{
+        @include border(4px, $blue-light, $blue);
+      }
+
+      &-hard{
+        @include border(4px, $red-light, $red);
+      }
+
+      &-expert{
+        @include border(4px, $green-light, $green);
+      }
+    }
   }
+
 
   .vertical-navbox {
 

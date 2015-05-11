@@ -4,8 +4,8 @@ var modules,
 
 modules = ["backbone", "./pages/main", "./page/main"];
 
-define(modules, function(Backbone, pages, page) {
-  var App, app;
+define(modules, function(Backbone, pages, Page) {
+  var App, app, page;
   App = (function(superClass) {
     extend(App, superClass);
 
@@ -24,7 +24,6 @@ define(modules, function(Backbone, pages, page) {
     };
 
     App.prototype.to_page = function(domain, lang, page_title) {
-      console.log(page_title);
       return page.load_content(page_title);
     };
 
@@ -32,6 +31,10 @@ define(modules, function(Backbone, pages, page) {
 
   })(Backbone.Router);
   app = new App();
+  page = new Page();
+  pages.on("loaded", function(pagesList) {
+    return page.set("domain", pagesList);
+  });
   pages.on("open:page", function(title) {
     app.navigate("geometry/en/" + title);
     return page.load_content(title);

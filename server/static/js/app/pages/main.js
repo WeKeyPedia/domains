@@ -30,7 +30,8 @@ define(modules, function(Backbone, vl) {
             return results;
           })();
           _this.add(p);
-          return _this.trigger("add:list");
+          _this.trigger("add:list");
+          return _this.trigger("loaded", p);
         };
       })(this));
     };

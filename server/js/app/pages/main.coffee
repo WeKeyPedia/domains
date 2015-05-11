@@ -14,6 +14,7 @@ define modules, (Backbone, vl)->
 
         # tell everyone the list is added
         @trigger("add:list")
+        @trigger("loaded", p)
 
   pages = new Pages()
 

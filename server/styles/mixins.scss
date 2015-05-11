@@ -1,0 +1,10 @@
+@import "colors";
+
+@mixin border($size: 4px, $color: $grey-light-pale, $hover-color: $grey-light) {
+  box-shadow: 0 -#{$size} 0 $color inset;
+
+  &:hover {
+    text-decoration: none;
+    box-shadow: 0 -#{$size} 0 $hover-color inset;
+  }
+}
