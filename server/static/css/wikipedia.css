@@ -1,10 +1,19 @@
 .wikipedia {
   overflow: scroll;
   font-family: "Libre Baskerville", serif; }
+  .wikipedia h1 {
+    margin: 45px 0; }
   .wikipedia p {
+    color: #383838;
     font-size: 1.2em;
     line-height: 1.7em;
     margin-bottom: 1em; }
+  .wikipedia a {
+    color: black;
+    box-shadow: 0-4px 0 #ededed inset; }
+    .wikipedia a:hover {
+      text-decoration: none;
+      box-shadow: 0-4px 0 #878787 inset; }
   .wikipedia .vertical-navbox th {
     text-align: center; }
   .wikipedia .vertical-navbox ul {
@@ -18,4 +27,4 @@
       padding: 5px; }
   .wikipedia .thumb.tright {
     float: right;
-    margin-left: 3px; }
+    margin-left: 15px; }

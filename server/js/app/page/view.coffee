@@ -6,7 +6,7 @@ modules = [
 template = """
 <div class="wikipedia page-view">
 
-<h2><a href="http://en.wikipedia.org/wiki/<%= title %>"><%= title %></a></h2>
+<h1><a href="http://en.wikipedia.org/wiki/<%= title %>"><%= title %></a></h1>
 
 <div class="content">
   <%= content %>

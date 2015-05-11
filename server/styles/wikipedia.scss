@@ -1,20 +1,35 @@
+@import "colors";
+@import "mixins";
+
 $serif: "Libre Baskerville", serif;
 $sans-serif: "Helvetica", "Helvetica Neue", arial, sans-serif;
+
 .wikipedia {
   overflow: scroll;
 
   font-family: $serif;
 
+  h1 {
+    margin: 45px 0;
+  }
+
   p {
+    color: $grey-dark;
     font-size: 1.2em;
     line-height: 1.7em;
     margin-bottom: 1em;
   }
 
+
+  a {
+    color: black;
+    @include border();
+  }
+
   .vertical-navbox {
 
     th {
-      text-align: center;  
+      text-align: center;
     }
 
     ul {
@@ -37,7 +52,7 @@ $sans-serif: "Helvetica", "Helvetica Neue", arial, sans-serif;
 
   .thumb.tright {
     float: right;
-    margin-left: 3px;
+    margin-left: 15px;
   }
 
 }

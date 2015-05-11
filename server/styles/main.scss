@@ -1,13 +1,5 @@
 // IMPORTS
-@import "wikipedia.css";
-
-// COLORS
-
-$blue: #5489fa;
-$blue-light: #a6c6ff;
-
-$green: #2fe203;
-$green-light: #99ff7d;
+@import "colors";
 
 // GENERIC
 
@@ -20,7 +12,7 @@ $green-light: #99ff7d;
   .col-md-2, .col-md-3 {
     margin: 0;
     padding: 0;
-    border-right: 1px solid #cecece;
+    border-right: 1px solid $grey-light-pale;
     height: 100%;
     overflow: hidden;
 
@@ -31,8 +23,9 @@ $green-light: #99ff7d;
   }
 
   h2.header {
-      background-color: $blue;
-      color: $blue-light;
+      text-align: center;
+      background-color: white;
+      color: $grey-light;
       margin: 0;
       padding: 7px;
       margin-right: -1px;
@@ -42,13 +35,15 @@ $green-light: #99ff7d;
 
 #page-info {
   h2.header {
-    background: $green;
-    color: $green-light;
+    // background: $green;
+    // color: $green-light;
   }
 }
 
 
 #pages {
+  display:none;
+
   .list {
     height: 100%;
     overflow: scroll;
@@ -64,4 +59,7 @@ $green-light: #99ff7d;
 #page {
   height: 100%;
   overflow: scroll;
+  padding: 0 30px;
 }
+
+@import "wikipedia";
