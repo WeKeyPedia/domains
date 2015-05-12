@@ -7,3 +7,7 @@ e/
 # node
 node_modules
 bower_components
+
+# builds
+static/js
+static/css
