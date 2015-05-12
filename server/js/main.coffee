@@ -4,11 +4,12 @@ config=
   urlArgs: "bust=" + (new Date()).getTime()
 
   paths:
-    jquery: "lib/jquery"
     text: "lib/text"
+    jquery: "lib/jquery"
     backbone: "lib/backbone"
     underscore: "lib/underscore"
     handlebars: "lib/handlebars"
+    bootstrap: "lib/bootstrap"
 
   shims:
     "backbone":
@@ -18,6 +19,9 @@ config=
       exports: '_'
     "handlebars":
       exports: "Handlebars"
+    'jquery/scrollspy':
+      deps: ['jquery']
+      # exports: '$.fn.scrollspy'
 
 require.config(config)
 

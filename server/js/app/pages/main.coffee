@@ -5,6 +5,10 @@ modules = [
 
 define modules, (Backbone, vl)->
   class Pages extends Backbone.Collection
+    initialize: ()->
+      pages_list = new vl
+        el: "#pages .list"
+        collection: this
 
     retrieve: ()->
       $.get "/api/domain/geometry/list", (data)=>
@@ -16,10 +20,4 @@ define modules, (Backbone, vl)->
         @trigger("add:list")
         @trigger("loaded", p)
 
-  pages = new Pages()
-
-  pages_list = new vl({ el: "#pages .list", collection: pages })
-
-  pages.retrieve()
-
-  return pages
+  return Pages

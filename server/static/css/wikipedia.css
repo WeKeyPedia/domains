@@ -1,0 +1,60 @@
+.wikipedia {
+  font-family: "Libre Baskerville", serif; }
+  .wikipedia h1 {
+    margin: 45px 0; }
+  .wikipedia p, .wikipedia li {
+    color: #383838;
+    font-size: 1.2em;
+    line-height: 1.7em;
+    margin-bottom: 1em; }
+  .wikipedia li {
+    margin-bottom: 0em; }
+    .wikipedia li li {
+      font-size: 1em; }
+  .wikipedia a {
+    color: black;
+    box-shadow: 0-4px 0 #ededed inset; }
+    .wikipedia a:hover {
+      text-decoration: none;
+      box-shadow: 0-4px 0 #878787 inset; }
+    .wikipedia a.link-domain-in {
+      box-shadow: 0-4px 0 #878787 inset; }
+      .wikipedia a.link-domain-in:hover {
+        text-decoration: none;
+        box-shadow: 0-4px 0 #494949 inset; }
+    .wikipedia a.link-difficulty-easy {
+      box-shadow: 0-4px 0 #cbffb6 inset; }
+      .wikipedia a.link-difficulty-easy:hover {
+        text-decoration: none;
+        box-shadow: 0-4px 0 #2fe203 inset; }
+    .wikipedia a.link-difficulty-normal {
+      box-shadow: 0-4px 0 #a6c6ff inset; }
+      .wikipedia a.link-difficulty-normal:hover {
+        text-decoration: none;
+        box-shadow: 0-4px 0 #5489fa inset; }
+    .wikipedia a.link-difficulty-hard {
+      box-shadow: 0-4px 0 #ff8080 inset; }
+      .wikipedia a.link-difficulty-hard:hover {
+        text-decoration: none;
+        box-shadow: 0-4px 0 #dc357a inset; }
+    .wikipedia a.link-difficulty-expert {
+      box-shadow: 0-4px 0 #cbffb6 inset; }
+      .wikipedia a.link-difficulty-expert:hover {
+        text-decoration: none;
+        box-shadow: 0-4px 0 #2fe203 inset; }
+  .wikipedia .vertical-navbox th {
+    text-align: center; }
+  .wikipedia .vertical-navbox ul {
+    list-style-type: none; }
+    .wikipedia .vertical-navbox ul li {
+      display: inline; }
+  .wikipedia .ambox {
+    font-family: "Helvetica", "Helvetica Neue", arial, sans-serif;
+    font-size: 1em; }
+    .wikipedia .ambox .mbox-image {
+      padding: 5px; }
+  .wikipedia .thumb.tright {
+    float: right;
+    margin-left: 15px; }
+  .wikipedia .mw-editsection {
+    display: none; }
