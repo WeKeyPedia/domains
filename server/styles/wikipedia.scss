@@ -36,21 +36,10 @@ $sans-serif: "Helvetica", "Helvetica Neue", arial, sans-serif;
 
     &.link-difficulty {
 
-      &-easy{
-        @include border(4px, $green-light, $green);
-      }
-
-      &-normal{
-        @include border(4px, $blue-light, $blue);
-      }
-
-      &-hard{
-        @include border(4px, $red-light, $red);
-      }
-
-      &-expert{
-        @include border(4px, $green-light, $green);
-      }
+      &-easy   { @include border(4px, $green-light, $green); }
+      &-normal { @include border(4px, $blue-light, $blue);   }
+      &-hard   { @include border(4px, $red-light, $red);     }
+      &-expert { @include border(4px, $green-light, $green); }
     }
   }
 

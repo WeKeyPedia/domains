@@ -1,13 +1,11 @@
-var modules, template,
+var modules,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
   indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
-modules = ["backbone", "underscore"];
+modules = ["backbone", "underscore", "handlebars", "text!./view.hbs"];
 
-template = "<div class=\"wikipedia page-view\">\n\n<h1><a href=\"http://en.wikipedia.org/wiki/<%= title %>\"><%= title %></a></h1>\n\n<div class=\"content\">\n  <%= content %>\n</div>\n\n</div>";
-
-define(modules, function(Backbone, _) {
+define(modules, function(Backbone, _, hbs, template) {
   var PageFull;
   PageFull = (function(superClass) {
     extend(PageFull, superClass);
@@ -63,9 +61,9 @@ define(modules, function(Backbone, _) {
       var data;
       data = {
         title: this.model.get("title"),
-        content: this.model.get("content")
+        content: new hbs.SafeString(this.model.get("content"))
       };
-      this.$el.html(_.template(template)(data));
+      this.$el.html(hbs.compile(template)(data));
       return this.update();
     };
 

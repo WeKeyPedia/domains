@@ -3,6 +3,13 @@ var config;
 config = {
   baseUrl: 'static/js',
   urlArgs: "bust=" + (new Date()).getTime(),
+  paths: {
+    jquery: "lib/jquery",
+    text: "lib/text",
+    backbone: "lib/backbone",
+    underscore: "lib/underscore",
+    handlebars: "lib/handlebars"
+  },
   shims: {
     "backbone": {
       deps: ['underscore', 'jquery'],
@@ -10,6 +17,9 @@ config = {
     },
     "underscore": {
       exports: '_'
+    },
+    "handlebars": {
+      exports: "Handlebars"
     }
   }
 };

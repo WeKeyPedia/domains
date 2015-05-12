@@ -3,6 +3,7 @@ var gutil= require('gulp-util');
 var coffee = require('gulp-coffee');
 var sass = require('gulp-sass');
 var bower = require('gulp-bower')
+var watch = require('gulp-watch');
 
 js_files = [
   './js/*.coffee',
@@ -11,6 +12,12 @@ js_files = [
 ]
 
 css_files = './styles/*.scss'
+
+hbs_files =[
+  './js/*.hbs',
+  './js/**/*.hbs',
+  './js/**/**/*.hbs'
+]
 
 gulp.task('coffee', function() {
   gulp.src(js_files)
@@ -29,6 +36,10 @@ gulp.task('bower', function() {
     .pipe(gulp.dest('static/js/lib/'))
 });
 
+gulp.task('hbs', function() {
+  return gulp.src(hbs_files)
+    .pipe(gulp.dest('./static/js'));
+});
 
 gulp.task('watch', function() {
   gulp.watch(js_files, ['coffee']);

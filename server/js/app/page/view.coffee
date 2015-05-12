@@ -1,21 +1,11 @@
 modules = [
   "backbone"
   "underscore"
+  "handlebars"
+  "text!./view.hbs"
 ]
 
-template = """
-<div class="wikipedia page-view">
-
-<h1><a href="http://en.wikipedia.org/wiki/<%= title %>"><%= title %></a></h1>
-
-<div class="content">
-  <%= content %>
-</div>
-
-</div>
-"""
-
-define modules, (Backbone, _)->
+define modules, (Backbone, _, hbs, template)->
   class PageFull extends Backbone.View
     parseContent: ()->
       domain = (x["title"] for x in @model.get "domain")
@@ -48,9 +38,9 @@ define modules, (Backbone, _)->
     render: ()->
       data =
         title: @model.get "title"
-        content: @model.get "content"
+        content: new hbs.SafeString @model.get "content"
 
-      @$el.html _.template(template)(data)
+      @$el.html hbs.compile(template)(data)
       @update()
 
     update: ()->
