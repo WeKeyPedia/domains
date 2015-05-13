@@ -2,6 +2,7 @@
   font-size: 0.8em; }
 #app .col-md-2, #app .col-md-3 {
   margin: 0;
+  padding: 0;
   height: 100%;
   border-right: 1px solid #ededed; }
   #app .col-md-2 h2, #app .col-md-3 h2 {
@@ -18,28 +19,6 @@
 #page-info {
   padding: 0 5px;
   position: fixed; }
-  #page-info #toctitle {
-    display: none; }
-  #page-info .toc {
-    font-size: 1.2em; }
-    #page-info .toc ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0; }
-    #page-info .toc ul ul ul {
-      display: none; }
-    #page-info .toc .tocnumber {
-      display: none; }
-    #page-info .toc ul li.active a {
-      color: red; }
-    #page-info .toc .toclevel-1 {
-      margin-top: 10px; }
-      #page-info .toc .toclevel-1 > a {
-        border-bottom: 1px solid #ededed; }
-      #page-info .toc .toclevel-1 a {
-        display: block; }
-        #page-info .toc .toclevel-1 a.active {
-          color: red; }
 
 #pages {
   display: none; }
@@ -118,3 +97,29 @@
     margin-right: -210px; }
   .wikipedia .mw-editsection {
     display: none; }
+
+#page-info #toctitle {
+  display: none; }
+#page-info .toc {
+  font-size: 1.2em; }
+  #page-info .toc ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+  #page-info .toc ul ul ul {
+    display: none; }
+  #page-info .toc .tocnumber {
+    display: none; }
+  #page-info .toc ul li.active a {
+    color: red; }
+  #page-info .toc .toclevel-1 a {
+    border-left: 3px solid white;
+    padding: 2px 3px;
+    display: block;
+    color: #878787; }
+    #page-info .toc .toclevel-1 a.active {
+      color: black;
+      border-left-color: rgba(135, 135, 135, 0.5); }
+  #page-info .toc .toclevel-1 > a {
+    border-bottom: 1px solid #ededed;
+    color: rgba(73, 73, 73, 0.9); }

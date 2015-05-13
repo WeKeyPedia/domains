@@ -14,7 +14,7 @@ body {
 
   .col-md-2, .col-md-3 {
     margin: 0;
-    // padding: 0;
+    padding: 0;
     height:100%;
     border-right: 1px solid $grey-light-pale;
 
@@ -43,41 +43,6 @@ body {
   h2.header {
     // background: $green;
     // color: $green-light;
-  }
-
-  #toctitle { display: none; }
-
-  .toc {
-    font-size: 1.2em;
-
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    ul ul ul { display: none; }
-
-    .tocnumber {display: none; }
-
-    ul li.active a { color: red; }
-
-    .toclevel-1 {
-      margin-top: 10px;
-
-      & > a {
-        border-bottom: 1px solid $grey-light-pale;
-      }
-
-      a {
-
-        display: block;
-
-        &.active {
-          color: red;
-        }
-      }
-    }
   }
 }
 

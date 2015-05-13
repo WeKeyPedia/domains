@@ -10,7 +10,7 @@ modules = [
 
 define modules, ($, Backbone, _, hbs, scrollspy, template, info)->
   "use strict"
-  
+
   class PageFull extends Backbone.View
 
     initialize: ()->
@@ -34,6 +34,7 @@ define modules, ($, Backbone, _, hbs, scrollspy, template, info)->
       return this
 
     beautify: ()->
+      @notes()
       @prettyMath()
       @extractTOC()
 
@@ -90,6 +91,12 @@ define modules, ($, Backbone, _, hbs, scrollspy, template, info)->
 
       $toc.appendTo "#page-info"
 
+      return this
+
+    notes: ()->
+      @$el.find(".hatnote").each (i,e)->
+        $e = $(e)
+        $e.addClass("alert alert-info")
 
       return this
 

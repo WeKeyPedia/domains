@@ -82,4 +82,50 @@ $sans-serif: "Helvetica", "Helvetica Neue", arial, sans-serif;
   }
 
   .mw-editsection { display: none; }
+
+  .hatnote {
+    // color: red;
+  }
+}
+
+#page-info {
+  #toctitle { display: none; }
+
+  .toc {
+    font-size: 1.2em;
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    ul ul ul { display: none; }
+
+    .tocnumber {display: none; }
+
+    ul li.active a { color: red; }
+
+    .toclevel-1 {
+      a {
+        border-left: 3px solid white;
+        padding: 2px 3px;
+        display: block;
+        color: $grey-light;
+
+        &.active {
+          color: black;
+          border-left-color: rgba($grey-light, 0.5);
+        }
+      }
+
+      & > a {
+        border-bottom: 1px solid $grey-light-pale;
+        color: rgba($grey, 0.9);
+      }
+
+    }
+
+
+  }
 }

@@ -62,3 +62,29 @@
     margin-right: -210px; }
   .wikipedia .mw-editsection {
     display: none; }
+
+#page-info #toctitle {
+  display: none; }
+#page-info .toc {
+  font-size: 1.2em; }
+  #page-info .toc ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+  #page-info .toc ul ul ul {
+    display: none; }
+  #page-info .toc .tocnumber {
+    display: none; }
+  #page-info .toc ul li.active a {
+    color: red; }
+  #page-info .toc .toclevel-1 a {
+    border-left: 3px solid white;
+    padding: 2px 3px;
+    display: block;
+    color: #878787; }
+    #page-info .toc .toclevel-1 a.active {
+      color: black;
+      border-left-color: rgba(135, 135, 135, 0.5); }
+  #page-info .toc .toclevel-1 > a {
+    border-bottom: 1px solid #ededed;
+    color: rgba(73, 73, 73, 0.9); }

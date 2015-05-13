@@ -35,6 +35,7 @@ define(modules, function($, Backbone, _, hbs, scrollspy, template, info) {
     };
 
     PageFull.prototype.beautify = function() {
+      this.notes();
       this.prettyMath();
       this.extractTOC();
       return this;
@@ -103,6 +104,15 @@ define(modules, function($, Backbone, _, hbs, scrollspy, template, info) {
         return $("" + href).scrollSpy();
       });
       $toc.appendTo("#page-info");
+      return this;
+    };
+
+    PageFull.prototype.notes = function() {
+      this.$el.find(".hatnote").each(function(i, e) {
+        var $e;
+        $e = $(e);
+        return $e.addClass("alert alert-info");
+      });
       return this;
     };
 
