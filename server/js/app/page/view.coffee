@@ -58,7 +58,7 @@ define modules, ($, Backbone, _, hbs, scrollspy, template, info)->
           # target = "Circle"
 
           if target in domain
-            $e.attr("href", "#geometry/en/#{target}")
+            $e.attr("href", "/domain/geometry/en/#{target}")
             $e.addClass("link-domain-in")
 
             switch Math.floor Math.random() * 5
@@ -97,6 +97,12 @@ define modules, ($, Backbone, _, hbs, scrollspy, template, info)->
       @$el.find(".hatnote").each (i,e)->
         $e = $(e)
         $e.addClass("alert alert-info")
+
+      @$el.find(".ambox-Refimprove").each (i,e)->
+        $e = $(e)
+        $e.addClass("alert alert-warning")
+
+
 
       return this
 

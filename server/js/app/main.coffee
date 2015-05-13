@@ -30,7 +30,7 @@ define modules, (Backbone, Pages, Page)->
     page.set("domain", pagesList)
 
   pages.on "open:page", (title)->
-    app.navigate("geometry/en/#{title}")
+    app.navigate("domain/geometry/en/#{title}")
     page.load_content(title)
 
   # pages.retrieve()

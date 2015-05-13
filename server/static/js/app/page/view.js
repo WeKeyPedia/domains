@@ -66,7 +66,7 @@ define(modules, function($, Backbone, _, hbs, scrollspy, template, info) {
           target = href.replace("/wiki/", "");
           target = target.replace("_", " ");
           if (indexOf.call(domain, target) >= 0) {
-            $e.attr("href", "#geometry/en/" + target);
+            $e.attr("href", "/domain/geometry/en/" + target);
             $e.addClass("link-domain-in");
             switch (Math.floor(Math.random() * 5)) {
               case 0:
@@ -112,6 +112,11 @@ define(modules, function($, Backbone, _, hbs, scrollspy, template, info) {
         var $e;
         $e = $(e);
         return $e.addClass("alert alert-info");
+      });
+      this.$el.find(".ambox-Refimprove").each(function(i, e) {
+        var $e;
+        $e = $(e);
+        return $e.addClass("alert alert-warning");
       });
       return this;
     };

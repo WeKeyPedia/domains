@@ -41,7 +41,7 @@ define(modules, function(Backbone, Pages, Page) {
     return page.set("domain", pagesList);
   });
   pages.on("open:page", function(title) {
-    app.navigate("geometry/en/" + title);
+    app.navigate("domain/geometry/en/" + title);
     return page.load_content(title);
   });
   return Backbone.history.start({
