@@ -114,6 +114,7 @@
       padding: 5px; }
   .wikipedia .thumb.tright {
     float: right;
-    margin-left: 15px; }
+    margin-left: 15px;
+    margin-right: -210px; }
   .wikipedia .mw-editsection {
     display: none; }
