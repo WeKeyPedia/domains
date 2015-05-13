@@ -5,6 +5,7 @@ var modules,
 modules = ["backbone", "./pages/main", "./page/main"];
 
 define(modules, function(Backbone, Pages, Page) {
+  "use strict";
   var App, app, page, pages;
   App = (function(superClass) {
     extend(App, superClass);

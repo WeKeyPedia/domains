@@ -31,5 +31,6 @@ config = {
 require.config(config);
 
 require(["app/main"], function(app) {
+  "use strict";
   return true;
 });

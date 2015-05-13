@@ -6,6 +6,7 @@ var modules,
 modules = ["jquery", "backbone", "underscore", "handlebars", "jquery/scrollspy", "text!./view.hbs", "text!./info.hbs"];
 
 define(modules, function($, Backbone, _, hbs, scrollspy, template, info) {
+  "use strict";
   var PageFull;
   PageFull = (function(superClass) {
     extend(PageFull, superClass);

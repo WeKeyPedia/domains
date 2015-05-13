@@ -4,6 +4,8 @@ modules = [
 ]
 
 define modules, (Backbone, v)->
+  "use strict"
+
   class Page extends Backbone.Model
 
     defaults:

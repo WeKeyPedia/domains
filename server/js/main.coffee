@@ -26,5 +26,7 @@ config=
 require.config(config)
 
 require ["app/main"], (app)->
+  "use strict"
+
   # console.log app
   return true

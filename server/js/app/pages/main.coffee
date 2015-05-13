@@ -4,6 +4,8 @@ modules = [
 ]
 
 define modules, (Backbone, vl)->
+  "use strict"
+
   class Pages extends Backbone.Collection
     initialize: ()->
       pages_list = new vl

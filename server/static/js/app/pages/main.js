@@ -5,6 +5,7 @@ var modules,
 modules = ["backbone", "./view.list"];
 
 define(modules, function(Backbone, vl) {
+  "use strict";
   var Pages;
   Pages = (function(superClass) {
     extend(Pages, superClass);

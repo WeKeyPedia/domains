@@ -9,6 +9,8 @@ modules = [
 ]
 
 define modules, ($, Backbone, _, hbs, scrollspy, template, info)->
+  "use strict"
+  
   class PageFull extends Backbone.View
 
     initialize: ()->

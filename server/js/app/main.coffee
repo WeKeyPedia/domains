@@ -5,6 +5,8 @@ modules = [
 ]
 
 define modules, (Backbone, Pages, Page)->
+  "use strict"
+
   class App extends Backbone.Router
     routes:
       "": "default"
