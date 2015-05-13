@@ -84,6 +84,7 @@
     color: #878787; }
     #page-info .toc .toclevel-1 a.active {
       color: black;
+      background: rgba(237, 237, 237, 0.5);
       border-left-color: rgba(135, 135, 135, 0.5); }
   #page-info .toc .toclevel-1 > a {
     border-bottom: 1px solid #ededed;

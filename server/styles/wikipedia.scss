@@ -115,6 +115,7 @@ $sans-serif: "Helvetica", "Helvetica Neue", arial, sans-serif;
 
         &.active {
           color: black;
+          background: rgba($grey-light-pale, 0.5);
           border-left-color: rgba($grey-light, 0.5);
         }
       }
