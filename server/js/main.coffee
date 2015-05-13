@@ -1,6 +1,6 @@
 config=
 
-  baseUrl: 'static/js'
+  baseUrl: '/static/js'
   urlArgs: "bust=" + (new Date()).getTime()
 
   paths:

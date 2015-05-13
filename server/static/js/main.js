@@ -1,7 +1,7 @@
 var config;
 
 config = {
-  baseUrl: 'static/js',
+  baseUrl: '/static/js',
   urlArgs: "bust=" + (new Date()).getTime(),
   paths: {
     text: "lib/text",

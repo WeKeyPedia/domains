@@ -16,7 +16,7 @@ define(modules, function(Backbone, Pages, Page) {
 
     App.prototype.routes = {
       "": "default",
-      ":domain/:lang/:page_title": "to_page"
+      "domain/:domain/:lang/:page_title": "to_page"
     };
 
     App.prototype["default"] = function() {
@@ -44,5 +44,7 @@ define(modules, function(Backbone, Pages, Page) {
     app.navigate("geometry/en/" + title);
     return page.load_content(title);
   });
-  return Backbone.history.start();
+  return Backbone.history.start({
+    pushState: true
+  });
 });

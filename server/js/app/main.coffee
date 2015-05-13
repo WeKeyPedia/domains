@@ -10,7 +10,7 @@ define modules, (Backbone, Pages, Page)->
   class App extends Backbone.Router
     routes:
       "": "default"
-      ":domain/:lang/:page_title": "to_page"
+      "domain/:domain/:lang/:page_title": "to_page"
 
     default: ()->
       pages.on "add:list", ()->
@@ -34,4 +34,4 @@ define modules, (Backbone, Pages, Page)->
     page.load_content(title)
 
   # pages.retrieve()
-  Backbone.history.start()
+  Backbone.history.start({ pushState: true })
