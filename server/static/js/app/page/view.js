@@ -92,16 +92,15 @@ define(modules, function($, Backbone, _, hbs, scrollspy, template, info) {
       $toc = this.$el.find("#toc");
       $toc.addClass("nav");
       $toc.find("a").each(function(i, e) {
-        var $e, href;
+        var $e, b, href;
         $e = $(e);
         href = $e.attr("href");
-        $("" + href).on('scrollSpy:enter', function() {
+        return b = $("" + href).parent().nextUntil("h2, h3, h4, h5, h6").andSelf().wrapAll("<div></div>").parent().on('scrollSpy:enter', function() {
+          console.log(this);
           return $e.addClass("active");
-        });
-        $("" + href).on('scrollSpy:exit', function() {
+        }).on('scrollSpy:exit', function() {
           return $e.removeClass("active");
-        });
-        return $("" + href).scrollSpy();
+        }).scrollSpy();
       });
       $toc.appendTo("#page-info");
       return this;

@@ -80,14 +80,18 @@ define modules, ($, Backbone, _, hbs, scrollspy, template, info)->
         $e = $(e)
         href = $e.attr("href")
 
-        $("#{href}").on 'scrollSpy:enter', ()->
-          $e.addClass "active"
-
-        $("#{href}").on 'scrollSpy:exit', ()->
-          $e.removeClass "active"
-
-        $("#{href}").scrollSpy()
-
+        b = $("#{href}")
+          .parent()
+          .nextUntil("h2, h3, h4, h5, h6")
+          .andSelf()
+          .wrapAll("<div></div>")
+          .parent()
+          .on 'scrollSpy:enter', ()->
+            console.log this
+            $e.addClass "active"
+          .on 'scrollSpy:exit', ()->
+            $e.removeClass "active"
+          .scrollSpy()
 
       $toc.appendTo "#page-info"
 
