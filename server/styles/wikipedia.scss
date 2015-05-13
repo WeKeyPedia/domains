@@ -7,12 +7,21 @@ $sans-serif: "Helvetica", "Helvetica Neue", arial, sans-serif;
 .wikipedia {
   font-family: $serif;
 
+  & > * {
+    // background: red;
+  }
+
   h1 {
     margin: 45px 0;
   }
 
+  .mw-headline {
+    background: white;
+  }
+
   p, li {
     color: $grey-dark;
+    background: white;
     font-size: 1.2em;
     line-height: 1.7em;
     margin-bottom: 1em;
@@ -39,8 +48,8 @@ $sans-serif: "Helvetica", "Helvetica Neue", arial, sans-serif;
       &-hard   { @include border(4px, $red-light, $red);     }
       &-expert { @include border(4px, $green-light, $green); }
     }
-  }
 
+  }
 
   .vertical-navbox {
 

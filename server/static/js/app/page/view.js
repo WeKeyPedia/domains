@@ -14,6 +14,36 @@ define(modules, function($, Backbone, _, hbs, scrollspy, template, info) {
       return PageFull.__super__.constructor.apply(this, arguments);
     }
 
+    PageFull.prototype.initialize = function() {
+      return this.listenTo(this.model, "change", this.render);
+    };
+
+    PageFull.prototype.render = function() {
+      var data;
+      data = {
+        title: this.model.get("title"),
+        content: new hbs.SafeString(this.model.get("content"))
+      };
+      this.$el.html(hbs.compile(template)(data));
+      this.$info = $("#page-info");
+      this.$info.html(hbs.compile(info)());
+      console.log("render:", this.model.get("title"));
+      this.beautify();
+      this.update();
+      return this;
+    };
+
+    PageFull.prototype.beautify = function() {
+      this.prettyMath();
+      this.extractTOC();
+      return this;
+    };
+
+    PageFull.prototype.update = function() {
+      this.colorizeLinks();
+      return this;
+    };
+
     PageFull.prototype.colorizeLinks = function() {
       var domain, x;
       domain = (function() {
@@ -75,27 +105,18 @@ define(modules, function($, Backbone, _, hbs, scrollspy, template, info) {
       return this;
     };
 
-    PageFull.prototype.initialize = function() {
-      return this.listenTo(this.model, "change", this.render);
-    };
-
-    PageFull.prototype.render = function() {
-      var data;
-      data = {
-        title: this.model.get("title"),
-        content: new hbs.SafeString(this.model.get("content"))
-      };
-      this.$el.html(hbs.compile(template)(data));
-      this.$info = $("#page-info");
-      this.$info.html(hbs.compile(info)());
-      console.log("render:", this.model.get("title"));
-      this.update();
+    PageFull.prototype.prettyMath = function() {
+      this.$el.find(".tex").each((function(_this) {
+        return function(i, e) {
+          var $e, tex;
+          $e = $(e);
+          tex = $e.attr("alt");
+          $e.before("$$" + tex + "$$");
+          return $e.hide();
+        };
+      })(this));
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub, "page"]);
       return this;
-    };
-
-    PageFull.prototype.update = function() {
-      this.colorizeLinks();
-      return this.extractTOC();
     };
 
     return PageFull;

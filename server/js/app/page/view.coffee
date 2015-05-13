@@ -11,6 +11,37 @@ modules = [
 define modules, ($, Backbone, _, hbs, scrollspy, template, info)->
   class PageFull extends Backbone.View
 
+    initialize: ()->
+      @listenTo(@model, "change", @render)
+
+    render: ()->
+      data =
+        title: @model.get "title"
+        content: new hbs.SafeString @model.get "content"
+
+      @$el.html hbs.compile(template)(data)
+
+      @$info = $("#page-info")
+      @$info.html hbs.compile(info)()
+
+      console.log "render:", @model.get "title"
+
+      @beautify()
+      @update()
+
+      return this
+
+    beautify: ()->
+      @prettyMath()
+      @extractTOC()
+
+      return this
+
+    update: ()->
+      @colorizeLinks()
+
+      return this
+
     colorizeLinks: ()->
       domain = (x["title"] for x in @model.get "domain")
 
@@ -60,27 +91,16 @@ define modules, ($, Backbone, _, hbs, scrollspy, template, info)->
 
       return this
 
-    initialize: ()->
-      @listenTo(@model, "change", @render)
+    prettyMath: ()->
+      @$el.find(".tex").each (i,e)=>
+        $e = $(e)
 
-    render: ()->
-      data =
-        title: @model.get "title"
-        content: new hbs.SafeString @model.get "content"
+        tex = $e.attr("alt")
+        $e.before("$$#{tex}$$")
+        $e.hide()
 
-      @$el.html hbs.compile(template)(data)
-
-      @$info = $("#page-info")
-      @$info.html hbs.compile(info)()
-
-      console.log "render:", @model.get "title"
-
-      @update()
+      MathJax.Hub.Queue(["Typeset",MathJax.Hub, "page"])
 
       return this
-
-    update: ()->
-      @colorizeLinks()
-      @extractTOC()
 
   return PageFull

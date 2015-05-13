@@ -2,8 +2,11 @@
   font-family: "Libre Baskerville", serif; }
   .wikipedia h1 {
     margin: 45px 0; }
+  .wikipedia .mw-headline {
+    background: white; }
   .wikipedia p, .wikipedia li {
     color: #383838;
+    background: white;
     font-size: 1.2em;
     line-height: 1.7em;
     margin-bottom: 1em; }
