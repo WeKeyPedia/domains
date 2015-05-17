@@ -19,6 +19,11 @@ hbs_files =[
   './js/**/**/*.hbs'
 ]
 
+gulp.task('libs', function(){
+  return gulp.src(['./js/lib/*', './js/lib/**'])
+    .pipe(gulp.dest('./static/js/lib/'));
+});
+
 gulp.task('coffee', function() {
   gulp.src(js_files)
     .pipe(coffee({bare: true}).on('error', gutil.log))
@@ -31,10 +36,10 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('./static/css/'))
 });
 
-gulp.task('bower', function() {
-  return bower()
-    .pipe(gulp.dest('static/js/lib/'))
-});
+// gulp.task('bower', function() {
+//   return bower()
+//     .pipe(gulp.dest('static/js/lib/'))
+// });
 
 gulp.task('hbs', function() {
   return gulp.src(hbs_files)
