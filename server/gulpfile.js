@@ -50,3 +50,6 @@ gulp.task('watch', function() {
   gulp.watch(js_files, ['coffee']);
   gulp.watch(css_files, ['sass']);
 });
+
+
+gulp.task('build', ['libs', 'coffee', 'hbs', 'sass']);
