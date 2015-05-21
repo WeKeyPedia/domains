@@ -21,8 +21,19 @@ define modules, (Backbone, v)->
       @on "change:domain", ()->
         page_view.update()
 
+
     load_content: (title)->
       $.get "/api/page/en/#{title}", (page)=>
          @set(page)
+
+         @get_clickstream()
+
+    get_clickstream: ()->
+      title = @get("title")
+
+      $.get "http://127.0.0.1:5100/#{title}/in-geometry/clickstream", (r)=>
+        console.log r
+        console.log r["data"]
+        @set("clickstream", r["data"])
 
   return Page

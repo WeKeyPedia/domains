@@ -15,6 +15,7 @@ define modules, ($, Backbone, _, hbs, scrollspy, template, info)->
 
     initialize: ()->
       @listenTo(@model, "change", @render)
+      @listenTo(@model, "change:clickstream", @colorizeLinks)
 
     render: ()->
       data =
@@ -48,20 +49,42 @@ define modules, ($, Backbone, _, hbs, scrollspy, template, info)->
     colorizeLinks: ()->
       domain = (x["title"] for x in @model.get "domain")
 
+      clickstream = @model.get "clickstream"
+
+      if clickstream is undefined
+        return false
+
+      # console.log "clickstream: ", clickstream
+
+      difficulty = clickstream["out"]
+      # console.log difficulty
+
       @$el.find("a").each (i, e)->
         $e = $(e)
         href = $e.attr("href")
+
+        s = _.chain(difficulty).keys().size().value()
+        k = _(difficulty).keys()
+        v = _.chain(difficulty).values().sortBy((x)-> -parseInt(x)).value()
+
+        #console.log v
 
         if href.startsWith("/wiki/")
           target = href.replace("/wiki/", "")
           target = target.replace("_", " ")
           # target = "Circle"
 
-          if target in domain
+          if target in k # and target in domain
             $e.attr("href", "/domain/geometry/en/#{target}")
             $e.addClass("link-domain-in")
 
-            switch Math.floor Math.random() * 5
+            #d = Math.floor Math.random() * 5
+            d = _(v).indexOf(difficulty[target])
+
+            console.log d,s
+            console.log Math.floor((d/s) * 5)
+
+            switch Math.floor((d/s)*5)
               when 0 then $e.addClass("link-difficulty-easy")
               when 1 then $e.addClass("link-difficulty-normal")
               when 2 then $e.addClass("link-difficulty-hard")
@@ -105,8 +128,6 @@ define modules, ($, Backbone, _, hbs, scrollspy, template, info)->
       @$el.find(".ambox-Refimprove").each (i,e)->
         $e = $(e)
         $e.addClass("alert alert-warning")
-
-
 
       return this
 
