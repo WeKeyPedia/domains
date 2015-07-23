@@ -1,6 +1,10 @@
 domains
 -------
 
+## wireframes
+
+![](https://dl.dropboxusercontent.com/s/akhn4aj5jt9k6w5/mockups---reading-interface.png?dl=0)
+
 ## installation
 
 ### javascript dependencies
